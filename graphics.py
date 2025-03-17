@@ -9,6 +9,7 @@ class Window():
         self.__canvas.pack(fill=BOTH, expand=1)
         self.__running = False
         self.__root.protocol("WM_DELETE_WINDOW", self.close)
+        self.background_color = self.__canvas.cget("background")
 
 
     def redraw(self):
@@ -31,7 +32,6 @@ class Window():
         line.draw(self.__canvas, fill_color)
 
 
-
     def close(self):
         self.__running = False
 
@@ -48,7 +48,7 @@ class Line():
         self.p2 = point2
     
 
-    def draw(self, canvas : Canvas, fill_color="black"):
+    def draw(self, canvas : Canvas, fill_color="black"): # why do I need canvas as a variable?
         canvas.create_line(self.p1.x, self.p1.y, self.p2.x, self.p2.y, fill=fill_color, width=2)
 
 
